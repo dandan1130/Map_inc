@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   root 'maps#home'
 
   get '/about', to: 'map#about'
