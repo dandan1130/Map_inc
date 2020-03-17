@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'maps/home'
+  root 'maps#home'
 
-  get 'maps/about'
+  get '/about', to: 'map#about'
+  get '/signup', to: 'map#signup'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
