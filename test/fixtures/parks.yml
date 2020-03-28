@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  park_title: MyString
+  park_address: MyString
+  park_discription: MyText
+  park_phone_number: MyString
+  station: MyString
+  east: 9.99
+  west: 9.99
+  park_image: MyString
+  park_url: MyString
+  park_admin: false
+
+two:
+  park_title: MyString
+  park_address: MyString
+  park_discription: MyText
+  park_phone_number: MyString
+  station: MyString
+  east: 9.99
+  west: 9.99
+  park_image: MyString
+  park_url: MyString
+  park_admin: false

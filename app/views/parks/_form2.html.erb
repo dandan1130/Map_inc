@@ -1,0 +1,28 @@
+<%= form_for(@park, url: park_path) do |f| %>
+
+ 
+    <%= f.file_field :park_image %>
+      
+      <%= f.label :park_title %>
+      <%= f.text_field :park_title %>
+
+      <%= f.label :park_address %>
+      <%= f.text_field :park_address %>
+      
+     <%= f.label :park_discription %>
+      <%= f.text_field :park_discription %>
+
+     <%= f.label :station %>
+      <%= f.text_field :station %>
+      
+       <%= f.label :east %>
+      <%= f.text_field :east %>
+      
+       <%= f.label :west %>
+      <%= f.text_field :west %>
+      
+       <%= f.label :park_url %>
+      <%= f.text_field :park_url %>
+      
+     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
