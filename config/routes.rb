@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'maps#home'
 
   get  '/about', to: 'maps#about'
+  get  '/search', to: 'maps#search'
   get  '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get  '/login',   to: 'sessions#new'
@@ -16,7 +17,12 @@ Rails.application.routes.draw do
   get '/park', to: 'parks#new'
   post '/park', to: 'parks#create'
   
+  get '/shop', to: 'shops#new'
+  post '/shop', to: 'shops#create'
+  
 resources :users
 resources :parks
+resources:shops
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

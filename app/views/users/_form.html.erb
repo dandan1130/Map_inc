@@ -1,23 +1,41 @@
+
 <%= form_for(@user) do |f| %>
+<div class="list">
   <%= render 'shared/error_messages', object: @user %>
 
-      <%= f.label :name %>
+
+      <%= f.label :name, "名前" %>
+       <div class="name-kids">
       <%= f.text_field :name %>
-
-      <%= f.label :email %>
+      </div>
+   
+      <%= f.label :email, "メールアドレス" %>
+       <div class="name-kids">
       <%= f.email_field :email %>
+      </div>
       
-     <%= f.label :address %>
+      <%= f.label :address, "住所" %>
+       <div class="name-kids">
       <%= f.text_field :address %>
+      </div> 
 
-     <%= f.label :phone_number %>
+      <%= f.label :phone_number, "携帯番号" %>
+       <div class="name-kids">
       <%= f.text_field :phone_number %>
-      
-      <%= f.label :password %>
+     </div>
+ 
+ 
+      <%= f.label :passwor, "パスワード" %>
+       <div class="name-kids">
       <%= f.password_field :password %>
+     </div>
+     
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "パスワード確認" %>
       <%= f.password_field :password_confirmation %>
-      
+   　
      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+
+ </div>
+ </div>

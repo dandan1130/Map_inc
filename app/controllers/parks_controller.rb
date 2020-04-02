@@ -4,6 +4,7 @@ class ParksController < ApplicationController
   end
   def show
   @park = Park.find(params[:id])
+  @posts = @user.posts
   end
 
   def new
@@ -13,6 +14,7 @@ class ParksController < ApplicationController
   def create
      @park = Park.new(park_params)
      if @park.save
+       flash[:success] = "Build the Park！"
      redirect_to @park
      else
       render 'new'

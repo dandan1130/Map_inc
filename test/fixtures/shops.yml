@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  park_id: 1
+  shop_name: MyString
+  shop_discription: MyString
+  shop_phone_nimber: MyString
+  shop_image: MyString
+  floor: MyString
+  category: MyString
+
+two:
+  park_id: 1
+  shop_name: MyString
+  shop_discription: MyString
+  shop_phone_nimber: MyString
+  shop_image: MyString
+  floor: MyString
+  category: MyString

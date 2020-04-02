@@ -6,8 +6,8 @@ class CreateParks < ActiveRecord::Migration[5.0]
       t.text :park_discription
       t.string :park_phone_number
       t.string :station
-      t.decimal :east
-      t.decimal :west
+      t.decimal :east, precision: 8, scale: 6
+      t.decimal :west, precision: 8, scale: 6
       t.string :park_image
       t.string :park_url
       t.boolean :park_admin

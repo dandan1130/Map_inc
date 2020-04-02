@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200324082322) do
+ActiveRecord::Schema.define(version: 20200329035500) do
 
   create_table "parks", force: :cascade do |t|
     t.string   "park_title"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 20200324082322) do
     t.boolean  "park_admin"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.integer  "park_id"
+    t.string   "shop_name"
+    t.string   "shop_discription"
+    t.string   "shop_phone_number"
+    t.string   "shop_image"
+    t.string   "floor"
+    t.string   "category"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["park_id"], name: "index_shops_on_park_id"
   end
 
   create_table "users", force: :cascade do |t|

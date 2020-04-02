@@ -1,0 +1,28 @@
+<%= form_tag(@shop, url: shop_path) do %>
+
+ <div class ="list">
+    <%= file_field_tag :shop_image %>
+    <%= select_tag :park_id,
+    options_from_collection_for_select(@park, :id, :park_title) %>
+      
+      <%= label :shop_name, "ショップ名" %>
+      <%= text_field_tag :shop_name %>
+
+      <%= label :shop_phone_number, "電話番号" %>
+      <%= text_field_tag :shop_phone_number %>
+      
+       <%= label :shop_discription, "紹介文" %>
+      <%= text_field_tag :shop_discription %>
+
+
+
+     <%= label :floor, "階" %>
+      <%= number_field_tag :floor %>
+      
+       <%= label :category, "カテゴリー" %>
+      <%= text_field_tag :category %>
+      
+      
+     <%= submit_tag yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+</div>

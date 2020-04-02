@@ -1,19 +1,23 @@
+<div class="format">
 <%= form_for(@park, url: park_path) do |f| %>
 
- 
+ <div class ="list">
     <%= f.file_field :park_image %>
       
-      <%= f.label :park_title %>
+      <%= f.label :park_title, "タイトル" %>
       <%= f.text_field :park_title %>
 
-      <%= f.label :park_address %>
+      <%= f.label :park_address, "住所" %>
       <%= f.text_field :park_address %>
       
-     <%= f.label :park_discription %>
+     <%= f.label :park_discription, "説明" %>
       <%= f.text_field :park_discription %>
 
-     <%= f.label :station %>
+     <%= f.label :station, "最寄り駅" %>
       <%= f.text_field :station %>
+      
+          <%= f.label :park_phone_number %>
+      <%= f.text_field :park_phone_number %>
       
        <%= f.label :east %>
       <%= f.text_field :east %>
@@ -26,3 +30,5 @@
       
      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+</div>
+</div>
