@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+
   get 'sessions/new'
 
   get 'users/new'
 
   root 'maps#home'
-
+ get  '/search', to: 'parks#index'
   get  '/about', to: 'maps#about'
-  get  '/search', to: 'maps#search'
   get  '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get  '/login',   to: 'sessions#new'

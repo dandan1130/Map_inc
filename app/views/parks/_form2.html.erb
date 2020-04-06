@@ -6,6 +6,10 @@
       
       <%= f.label :park_title, "タイトル" %>
       <%= f.text_field :park_title %>
+      
+      <%= f.label :park_category, "カテゴリー" %>
+      <%= f.select :park_category, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代"],["60代以上", "60代以上"] ],  :prompt => "選択してください" %>
+
 
       <%= f.label :park_address, "住所" %>
       <%= f.text_field :park_address %>
@@ -18,12 +22,6 @@
       
           <%= f.label :park_phone_number %>
       <%= f.text_field :park_phone_number %>
-      
-       <%= f.label :east %>
-      <%= f.text_field :east %>
-      
-       <%= f.label :west %>
-      <%= f.text_field :west %>
       
        <%= f.label :park_url %>
       <%= f.text_field :park_url %>

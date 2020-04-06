@@ -8,5 +8,9 @@ class MapsController < ApplicationController
   def signup
   end
   
+  def search
+    
+  end
+  
   
 end

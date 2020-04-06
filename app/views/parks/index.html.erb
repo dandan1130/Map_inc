@@ -1,2 +1,23 @@
-<h1>Parks#index</h1>
-<p>Find me in app/views/parks/index.html.erb</p>
+<% provide(:title, 'Search') %>
+
+<h1>Search</h1>
+
+
+<div class-"search-box">
+     <%= form_tag(parks_path, :method => 'get' ) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :park_title => nil %>
+<% end %>
+</div>
+<ul><% @park_lists.each do |park| %>
+  <li>
+    <li>
+    <%= link_to park.park_title, parks_path %>
+
+  </li>
+ 
+  </li>
+    <% end %>
+  </ul>
+
+

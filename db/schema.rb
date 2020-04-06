@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200329035500) do
+ActiveRecord::Schema.define(version: 20200404120248) do
 
   create_table "parks", force: :cascade do |t|
     t.string   "park_title"
@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(version: 20200329035500) do
     t.text     "park_discription"
     t.string   "park_phone_number"
     t.string   "station"
-    t.decimal  "east"
-    t.decimal  "west"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "park_image"
     t.string   "park_url"
     t.boolean  "park_admin"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "park_category"
   end
 
   create_table "shops", force: :cascade do |t|

@@ -1,10 +1,20 @@
 class ParksController < ApplicationController
  
   def index
+   
+       @parks = Park.paginate(page: params[:page], per_page: 5)
+       @park_lists = Park.search(params[:search])
   end
+  
   def show
   @park = Park.find(params[:id])
-  @posts = @user.posts
+  @park_shops = Shop.all
+     @hash = Gmaps4rails.build_markers(@park) do |park, marker|
+      marker.lat park.latitude
+      marker.lng park.longitude
+      marker.infowindow park.park_title
+  
+end  
   end
 
   def new
@@ -27,6 +37,8 @@ class ParksController < ApplicationController
     
   end
   
+
+  
   private
   
   def park_params
@@ -34,12 +46,13 @@ class ParksController < ApplicationController
                                :park_discription, 
                                :park_phone_number, 
                                :station, 
-                               :east,
-                               :west,
+                               :latitude,
+                               :longitude,
+                               :park_category,
                                :park_image, 
                                :park_url,
                             
 )
- end
-  
+end
+ 
 end
