@@ -1,0 +1,5 @@
+<div style='display: inline; float: right;'>
+ <% if park.bookmark_by?(current_user) %> 
+   <%= link_to icon('fas', 'star'), board_bookmarks_path(board.id), method: :delete, id: :"js-bookmark-button-for-board-#{board.id}" %>
+ <% end %>
+</div>

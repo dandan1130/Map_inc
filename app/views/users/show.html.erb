@@ -9,4 +9,16 @@
       </h1>
     </section>
   </aside>
+  <div>
+    <% @bookmarks.each do |bookmark|%>
+    <%= bookmark.park.park_title %>
+     <%= form_for(bookmark, url: user_bookmarks_path(current_user), method: :delete ) do |user| %>
+      <%= user.submit "ボタン", class: "button" %>
+    
+       <%= user.hidden_field :id, value: bookmark.id %>
+       <%= user.hidden_field :park_id, value: bookmark.park_id %>
+    <% end %>
+
 </div>
+<% end %>
+  </div>

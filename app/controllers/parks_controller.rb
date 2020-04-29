@@ -1,28 +1,28 @@
 class ParksController < ApplicationController
  
   def index
-   
-       @parks = Park.paginate(page: params[:page], per_page: 5)
        @park_lists = Park.search(params[:search])
+       @parks = Park.all.includes(:user).recent
   end
   
-  def show
-  @park = Park.find(params[:id])
-  @park_shops = Shop.all
-     @hash = Gmaps4rails.build_markers(@park) do |park, marker|
-      marker.lat park.latitude
-      marker.lng park.longitude
-      marker.infowindow park.park_title
-  
-end  
+ def show
+   @park = Park.find(params[:id])
+   @bookmark = current_user.bookmarks.new
+   result = Shop.new
+   @shops = Shop.all.includes(:park).recent
+  if params[:search].present? 
+   @park_shops = Shop.search(park_id: params[:id], shop_search: params[:search])
+  else
+   @park_shops = Shop.where(park_id: params[:id])
   end
+ end
 
   def new
    @park = Park.new
   end
 
   def create
-     @park = Park.new(park_params)
+     @park = current_user.parks.new(park_params)
      if @park.save
        flash[:success] = "Build the Park！"
      redirect_to @park
@@ -35,6 +35,9 @@ end
   end
   def destroy
     
+  end
+  def bookmarks
+    @bookmark_parks = current_user.bookmarks.includes(:user).recent
   end
   
 
@@ -51,8 +54,9 @@ end
                                :park_category,
                                :park_image, 
                                :park_url,
-                            
-)
-end
+                               :user_id,
+                               :park_address
+                               )
+  end
  
 end

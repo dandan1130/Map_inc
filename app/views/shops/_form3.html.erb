@@ -1,4 +1,4 @@
-<%= form_tag(@shop, url: shop_path) do %>
+<%= form_tag(@shop, url: new_shop_path) do %>
 
  <div class ="list">
     <%= file_field_tag :shop_image %>
@@ -17,7 +17,7 @@
 
 
      <%= label :floor, "階" %>
-      <%= number_field_tag :floor %>
+      <%= text_field_tag :floor %>
       
        <%= label :category, "カテゴリー" %>
       <%= text_field_tag :category %>

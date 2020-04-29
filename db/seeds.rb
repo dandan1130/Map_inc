@@ -1,3 +1,9 @@
+User.create!(name:  "user",
+             email: "user@gmail.com",
+             password:              "user",
+             password_confirmation: "user",
+             admin: true)
+
 Park.create(
     park_title: "東京タワー",
     park_address: "",
@@ -19,3 +25,6 @@ Park.create(
     park_url:"https://mitsui-shopping-park.com/lalaport/toyosu/floor/"
     
     )
+    
+    Bookmark.create!(user_id: 1, park_id: 1)
+    Bookmark.create!(user_id: 1, park_id: 2)

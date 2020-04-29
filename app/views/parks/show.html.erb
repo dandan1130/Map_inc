@@ -1,179 +1,67 @@
 <h2>gmap</h2>
 
-<script type="text/javascript">
-    function initMap() {
 
-        var test ={lat: <%= @latitude %>, lng: <%= @longitude %>};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: test
-        });
-        var transitLayer = new google.maps.TransitLayer();
-        transitLayer.setMap(map);
+<div id="map" style='width: 100%; height: 500px;'></div>
+ 
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+        {
+          "lat": <%= @park.latitude %>,
+          "lng": <%= @park.longitude %>
+        }
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(17);
+    });
+  </script>
 
-        var contentString = '住所：<%= @address %>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-
-        var marker = new google.maps.Marker({
-            position:test,
-            map: map,
-            title: contentString
-        });
-
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=[AIzaSyDO84kDPLVszGtoNKpxTjfXmBCkqGnpBWsf]&callback=initMap">
-</script>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @park.park_title %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @park.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @park.longitude %>
-</p>
-
-<style type="text/css">
-  #map { height: 400px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:left;
-    width: 80%;}
-</style>
-<div id="map"></div>
         <%= @park.park_title %>
       </h1>
+     
       
       <%= @park.park_title %>
       <%= @park.park_address %>
       <%= @park.park_discription %>
       <%= @park.park_image %>
       <%= @park.park_url %>
-      
-     <div class="shop_list">
-      <h3>Shop List</h3>
-    <% @park_shops.each do |shop| %>
-      <p><%= shop.floor %></p>
+    <h3>Shop List</h3>
+ <div class-"search-box">
+     <%= form_tag(park_path, :method => 'get' ) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :park_title => nil %>
+  <% end %>
+  
+ 
+      <div class="shop_list">
+  <ul><% @park_shops.each do |shop| %>
+  <li>
+    <li>
+       
       <p><%= shop.shop_name %></p>
-    
-    
-    <% end %>
-    </div>
-    
-    <ul class="tab4">
-  <li class="tab4__item"><span class="tab4__link on" data-tab-body="1">タブ１</span></li>
-  <li class="tab4__item"><span class="tab4__link" data-tab-body="2">タブ２</span></li>
-  <li class="tab4__item"><span class="tab4__link" data-tab-body="3">タブ３</span></li>
-  <li class="tab4__item"><span class="tab4__link" data-tab-body="4">タブ４</span></li>
-  <li class="tab4__item"><span class="tab4__link" data-tab-body="5">タブ５</span></li>
-</ul>
-<div class="tab4-body">
-  <div class="tab4-body__item tab4-body__item--1 on">
-    タブのコンテンツ１
-  </div>
-  <div class="tab4-body__item tab4-body__item--2">
-    フェードインの切り替えができます。コンテンツ２
-  </div>
-  <div class="tab4-body__item tab4-body__item--3">
-    コレはコンテンツ３です。
-  </div>
-  <div class="tab4-body__item tab4-body__item--4">
-    コンテンツ４です。
-  </div>
-  <div class="tab4-body__item tab4-body__item--5">
-    タブ５です。
-  </div>
+  </li>
+ 
+  </li>
+
+  </ul>
 </div>
-<style>
-.tab4{
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  background-color:#fff !important;
-  margin:0 !important;
-}
-.tab4__item{
-  flex:1;
-}
-.tab4__link{
-  position:relative;
-  display: block;
-  text-decoration: none;
-  color: #444;
-  cursor:pointer;
-}
-.tab4__link:before{
-  content:"";
-  position:absolute;
-  bottom:0;
-  right:50%;
-  width:0;
-  height:2px;
-  background-color:#444;
-  transition:all 0.4s ease-out;
-}
-.tab4__link:after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:50%;
-  width:0;
-  height:2px;
-  background-color:#444;
-  transition:all 0.4s ease-out;
-}
-.tab4__link.on:before{
-  width:50%;
-}
-.tab4__link.on:after{
-  width:50%;
-}
-.tab4-body{
-  position:relative;
-  height:120px;
-}
-.tab4-body__item{
-  position:absolute;
-  width:100%;
-  margin: 30px 15px;
-  text-align:center;
-  opacity:0;
-  transition:all 0.6s ease-out;
-}
-.tab4-body__item.on{
-  opacity:1;
-}
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var $tab__link = $(".tab4__link");
-  var $tab_body_item = $(".tab4-body__item");
-  $tab__link.on("click",function(e){
-    var target = $(e.currentTarget);
-    //タブの表示非表示
-    $tab__link.removeClass("on");
-    target.addClass("on");
-    //タブの中身の表示非表示
-    var num =　target.data("tab-body");
-    $tab_body_item.removeClass("on");
-    $(".tab4-body__item--"+num).addClass("on");
-  });
-});
-</script>
-    
+<% end %>
+<div class="row d-flex">
 </div>
+
+<div>
+<%= form_for(@bookmark, url: user_bookmarks_path(current_user) ) do |bookmark| %>
+<%= bookmark.submit "ボタン", class: "button" %>
+<%= bookmark.hidden_field :park_id, value: @park.id %>
+</div>
+<% end %>
+<% provide(:title, 'Search') %>
+<div>
+
+ </div>
+<div>
+
+</div>
+    

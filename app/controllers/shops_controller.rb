@@ -1,26 +1,31 @@
 class ShopsController < ApplicationController
 attr_accessor :park_name
 
-def show
-@shop = Shop.find(params[:id])
-end
+  def index
+   
+  end
 
-def new
-      @shop = Shop.new
-      @park = Park.all
-end
+  def show
+    @shop = Shop.find(params[:id])
+    
+  end
 
-def create
- 
-    xxx = Park.find(params[:park_id])
- @shop = xxx.shops.new(shop_params)
-if @shop.save
-    flash[:success] = "Open the Shop! "
-    redirect_to @shop
-else 
-    render 'new'
-end
-end
+  def new
+    @shop = Shop.new
+    @park = Park.all
+    render "shops/new"
+  end
+
+  def create
+     xxx = Park.find(params[:park_id])
+    @shop = xxx.shops.new(shop_params)
+      if @shop.save
+        flash[:success] = "Open the Shop! "
+        redirect_to @shop
+    else 
+        render 'new'
+    end
+  end
 
 def edit
 end

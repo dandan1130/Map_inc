@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200404120248) do
+ActiveRecord::Schema.define(version: 20200411094043) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "park_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["park_id"], name: "index_bookmarks_on_park_id"
+    t.index ["user_id", "park_id"], name: "index_bookmarks_on_user_id_and_park_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "parks", force: :cascade do |t|
     t.string   "park_title"
@@ -26,6 +36,8 @@ ActiveRecord::Schema.define(version: 20200404120248) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "park_category"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_parks_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -47,9 +59,9 @@ ActiveRecord::Schema.define(version: 20200404120248) do
     t.string   "address"
     t.string   "phone_number"
     t.string   "password_digest"
-    t.boolean  "admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
   end
 

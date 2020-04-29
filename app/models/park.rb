@@ -1,15 +1,22 @@
 class Park < ApplicationRecord
+   geocoded_by :park_address
+   after_validation :geocode
+   belongs_to :user
+   has_many :bookmarks, dependent: :destroy
    has_many :shops, dependent: :destroy
-     reverse_geocoded_by :latitude, :longitude
-    after_validation :geocode
    mount_uploader :park_image, PictureUploader
-    default_scope -> { order(created_at: :desc) }
-      geocoded_by :park_address
-  after_validation :geocode
+   default_scope -> { order(created_at: :desc) }
+ 
+  scope :recent, -> {order(created_at: :desc)}
     
+  def bookmark_by?(user)
+    bookmarks.find_by(user_id: user.id).exists?
+   end
+   
  def shop_list
  Shop.where("park_id = ?", id)
  end
+
  
    def self.search(search) #ここでのself.はUser.を意味する
     if search
@@ -18,4 +25,7 @@ class Park < ApplicationRecord
       all #全て表示。User.は省略
     end
   end
+
+  
+ 
 end
