@@ -19,7 +19,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'http'
 gem 'openssl'
 
