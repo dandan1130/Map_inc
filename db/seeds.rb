@@ -1,9 +1,12 @@
-User.create!(name:  "user",
-             email: "user@gmail.com",
-             password:              "user",
-             password_confirmation: "user",
-             admin: true)
-
+User.create( name:  "user",
+             email: "xxx@gmail.com",
+             phone_number: "09090900",
+             address: "東京都大田区東雪谷5-34-1",
+             password:"useruser",
+             password_confirmation: "useruser",
+             admin: true
+             )
+        
 Park.create(
     park_title: "東京タワー",
     park_address: "",
@@ -26,5 +29,3 @@ Park.create(
     
     )
     
-    Bookmark.create!(user_id: 1, park_id: 1)
-    Bookmark.create!(user_id: 1, park_id: 2)

@@ -1,13 +1,13 @@
 class Park < ApplicationRecord
    geocoded_by :park_address
    after_validation :geocode
-   belongs_to :user
+   belongs_to :user,optional: true
    has_many :bookmarks, dependent: :destroy
    has_many :shops, dependent: :destroy
    mount_uploader :park_image, PictureUploader
    default_scope -> { order(created_at: :desc) }
- 
   scope :recent, -> {order(created_at: :desc)}
+  
     
   def bookmark_by?(user)
     bookmarks.find_by(user_id: user.id).exists?

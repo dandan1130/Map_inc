@@ -1,3 +1,96 @@
+/*header */
+
+header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px ;
+    color: grey;
+    z-index: 5;
+    
+}
+ #logo, #dropdown{
+    font-family: "Montsettar", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    color: grey;
+    
+}
+
+.dropdown-toggle{
+    text-decoration: none;
+}
+
+.nav-logo{
+    cursor: pointer;
+    
+}
+.nav{
+    list-style: none;
+    color: grey;
+
+}
+.nav li a{
+    color:grey;
+}
+
+.nav li li {
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.nav li li a {
+   
+}
+.nav li:hover > ul > li {
+    height: 2rem;
+    overflow: visible;
+}
+.nav li{
+    display: inline-block;
+}
+
+#logo{
+    padding: 20px;
+    
+}
+.nav li{
+    
+}
+
+.nav li a{
+    transition: all 0.3s ease 0s;
+    position: relative;
+    width: 100%;
+    
+}
+.nav li a:hover{
+    color: grey;
+}
+
+.dropdown-menu ul li{
+    display:none;
+    position: relative;
+    width: 150px;
+   
+}
+
+.dropdown-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0px;
+    z-index:5;
+    
+}
+
+
+
+// /-----------HOME---------------------------/ 
 
 *{
   margin: 0;
@@ -7,40 +100,7 @@
   
 }
 
-#sample {
- width: 700px;
-   height: 400px;
-}
-/*header */
 
-.container{
-  display:flex;
-}
-
-#logo{
-  color: black;
-  text-decoration: none;
-}
-
-.nav{
-  width: 100%;
-  display:flex;
-  list-style: none;
-  text-decoration: none;
-
-}
-
-ul{
-    text-decoration: none;
-  }
-
-li{
-  margin: 20px;
-  width:100%;
-  list-style: none;
-  justify-content: center;
-  margin: 0px;
-}
 
 .gravatar {
   float: left;
@@ -54,45 +114,6 @@ li{
 
 
 // "バナー"
-
-.content{
-
- width:100%;  
-  height: 500px;
- background: image-url('top.jpg');
- background-size: cover;
- background-position: center;
- 
-}
-.content img{
-  width: 100%;
-  height: auto;
-  
-}
-.content h1{
-  color: #fff;
-}
-
-/*About*/
-.about{
-  width: 98%;
-  height:600px;
-  display: flex;
-  position: relative;
-   margin:15px;
-}
-
-.about-content{
-  width:50%;
-  border: 2px solid;
- 
-}
-
-.card1{
-  width:50%;
-  border: 2px solid;
-  
-}
 
 
 /* forms */

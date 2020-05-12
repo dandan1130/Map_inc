@@ -40,6 +40,17 @@ class ParksController < ApplicationController
     @bookmark_parks = current_user.bookmarks.includes(:user).recent
   end
   
+  def edit 
+   @park = Park.find(params[:id])
+  end
+  
+    def update
+    @park = Park.find(params[:id])
+    if current_user == @user || current_user.admin?
+      flash[:success] = "プロフィールを更新しました"
+      redirect_to @park
+  end
+  end
 
   
   private

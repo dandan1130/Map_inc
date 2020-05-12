@@ -21,4 +21,11 @@
 
 </div>
 <% end %>
+
+
+  <% if current_user == @user || current_user.admin? %>
+    <%= link_to "編集", edit_park_path %>
+    <%= link_to "作成", new_park_path %>
+  <% end %>
+
   </div>

@@ -1,7 +1,7 @@
 class Shop < ApplicationRecord
   include ActiveModel:: Model
     attr_accessor :shop_search
-    belongs_to :park
+    belongs_to :park,optional: true
     mount_uploader :shop_image, PictureUploader
     scope :recent, -> { order(created_at: :desc) }
     

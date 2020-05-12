@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
    before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
    before_action :correct_user,   only: [:edit, :update]
-  
+
  
   
   def show
@@ -64,4 +64,5 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_url) unless @user == current_user
     end
- end
+    
+end
