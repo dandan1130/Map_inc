@@ -1,3 +1,27 @@
-// Place all the styles related to the Parks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.park-contents{
+    width:100%;
+    text-align:center; 
+}   
+.park-kids{
+    
+}
+
+.floor-map input{
+  position: relative;
+  padding: 0.25em 0;
+  font-weight:bold ;
+  text-decoration: none;
+  width :50%;
+  border: solid 1px;
+  background-color: white;
+  text-decoration: none;
+  color: #1B1B1B;
+  transition: 1s;
+  font-size: 18px;
+  
+}
+
+.floor-map input:hover{
+     
+  background-color: #DCDCDC;
+}

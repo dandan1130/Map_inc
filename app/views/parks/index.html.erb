@@ -12,7 +12,10 @@
 <ul><% @park_lists.each do |park| %>
   <li>
     <li>
+      <%= image_tag park.park_image %>
+    <%= park.park_discription %>
     <%= link_to park.park_title, park_path(park) %>
+    
   </li>
  
   </li>

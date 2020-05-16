@@ -47,6 +47,7 @@ class ParksController < ApplicationController
     def update
     @park = Park.find(params[:id])
     if current_user == @user || current_user.admin?
+     @park.update_attributes(park_params)
       flash[:success] = "プロフィールを更新しました"
       redirect_to @park
   end

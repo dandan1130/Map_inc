@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   root 'maps#home'
   get  '/search', to: 'parks#index'
   get  '/about', to: 'maps#about'
@@ -16,4 +20,5 @@ Rails.application.routes.draw do
     end
   resources :parks 
   resources:shops
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 end
